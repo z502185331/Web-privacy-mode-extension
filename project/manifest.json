@@ -1,0 +1,25 @@
+{
+"name": "Keeprivate",
+"version": "1.0",
+"manifest_version": 2,
+"description": "Keep your browser private!",
+"browser_action": {
+    "default_icon": "icon.png"
+},
+"background": {
+		"scripts": [
+			"popup.js"
+		]
+	},
+"permissions": [
+    "cookies",
+    "tabs",
+    "history",
+    "contextMenus",
+    "bookmarks",
+    "webRequest",
+    "webRequestBlocking",
+    "notifications",
+    "<all_urls>" 
+]
+}
