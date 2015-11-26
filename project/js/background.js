@@ -6,9 +6,7 @@ var recentId = -1;
 
 
 
-chrome.extension.isAllowedIncognitoAccess(function(isIt){
-	isAllowed = isIt;
-});
+
 function deleteCookies(tab){
     if (localStorage["clearSessionCookies"] == "no" && localStorage["clearAllCookies"] == "no"){
         return;
@@ -90,12 +88,42 @@ function openIncognito(tab){
     }
 }
 
-function doubleOrSingle(tab){
-    deleteCookies(tab);
-    deleteHistory(tab);
-    closeWindow(tab);
-    openIncognito(tab);
+function doubleOrSingle(tab, type){
+    if (type == "single"){
+        deleteCookies(tab);
+        deleteHistory(tab);
+        closeWindow(tab);
+        openIncognito(tab);
+    }
+    else {
+        var i = 0;
+        while (/^chrome/.test(tab[i].url)){
+            i++;
+        }
+        if (recentId == -1){
+            chrome.windows.create({url: tab[i].url, incognito : true, type: "normal", focused: true}, function(window){
+                recentId = window.id;
+                for (var index = i + 1; index < tab.length; index++){
+                    if (/^chrome/.test(tab[i].url)){
+                        continue;
+                    }
+                    chrome.tabs.create({windowId: recentId, url: tab[index].url});
+                }
+            });
+        }
+        else {
+            for (var index = i + 1; index < tab.length; index++){
+                if (/^chrome/.test(tab[i].url)){
+                    continue;
+                }
+                chrome.tabs.create({windowId: recentId, url: tab[index].url});
+            }
+        }
+
+    }
 }
+    
+
 chrome.windows.onRemoved.addListener(function(windowId) {
     if (windowId = recentId){
         recentId = -1;
@@ -108,27 +136,21 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         if (singleClick == null) {
 			singleClick = setTimeout(function(){
 				singleClick = null;
-				doubleOrSingle(tab);
+				doubleOrSingle(tab, "single");
 			}, 500);
 		}
 		else {
 			clearTimeout(singleClick);
 			singleClick = null;
 			chrome.tabs.query({'lastFocusedWindow': true}, function (tabs) {
-                for (var index in tabs){
-                    if (/^chrome/.test(tabs[index].url)){
-                        continue;
-                    }
-                    window.setTimeout(function(){}, 500);
-                    doubleOrSingle(tabs[index]);
-                    console.log(tabs[index].title + " " + tabs[index].id);
-                }
+                doubleOrSingle(tabs, "double")
+
             });
         }
         
     }
     else {
-        doubleOrSingle(tab);
+        doubleOrSingle(tab, "single");
     }
     
     
