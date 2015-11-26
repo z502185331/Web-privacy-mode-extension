@@ -8,7 +8,7 @@
 },
 "background": {
 		"scripts": [
-			"background.js"
+			"js/background.js"
 		]
 	},
 "permissions": [
@@ -22,6 +22,7 @@
     "notifications",
     "<all_urls>" 
 ],
+    "options_page": "html/option.html",
 "web_accessible_resources": [
     "icon.png"
   ]
