@@ -4,14 +4,20 @@
 .container{
     margin: 0 auto;
     background-color: #eee;
-    width: 60%;
+
 }
 .settings{
-    padding-left: 30px;
+    padding-left: 50px;
 }
 .indent{
-    margin-left: 30px;
+    margin-left: 100px;
 }
 .bold{
     font-weight: bold;
+}
+
+
+}
+.tokenfield .twitter-typeahead .form-control {
+    display: none;
 }

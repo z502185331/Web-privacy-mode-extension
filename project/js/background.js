@@ -82,12 +82,16 @@ function openIncognito(tab){
     }
 }
 
+function wholeprocess(tab){
+    deleteCookies(tab);
+    deleteHistory(tab);
+    closeWindow(tab);
+    openIncognito(tab);
+}
+
 function doubleOrSingle(tab, type){
     if (type == "single"){
-        deleteCookies(tab);
-        deleteHistory(tab);
-        closeWindow(tab);
-        openIncognito(tab);
+        wholeprocess(tab);
     }
     else {
         var i = 0;
@@ -113,10 +117,19 @@ function doubleOrSingle(tab, type){
                 chrome.tabs.create({windowId: recentId, url: tab[index].url});
             }
         }
-
     }
 }
-    
+
+function checkURL(tab){
+    var list = localStorage["blacklist"].split(",");
+    for (var i = 0; i < list.length; i++){
+        if (eval("/.?"+list[i]+".?/").test(tab.url)){
+            wholeprocess(tab)
+            break;
+        }
+        
+    }
+}
 
 chrome.windows.onRemoved.addListener(function(windowId) {
     if (windowId = recentId){
@@ -124,6 +137,12 @@ chrome.windows.onRemoved.addListener(function(windowId) {
     }
 });
 
+chrome.tabs.onUpdated.addListener(function(updatedTabId, updatedInfo, updatedTab){
+    if (localStorage["autoMatch"] == "yes" && updatedTab.url != undefined && updatedInfo.status == "complete" && !updatedTab.incognito){
+        checkURL(updatedTab);
+    }
+	
+});
 
 chrome.browserAction.onClicked.addListener(function(tab) {
     if (localStorage["doubleClick"] == "yes"){
