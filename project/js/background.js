@@ -8,23 +8,17 @@ var recentId = -1;
 
 
 function deleteCookies(tab){
-    if (localStorage["clearSessionCookies"] == "no" && localStorage["clearAllCookies"] == "no"){
-        return;
-    }
-    else if (localStorage["clearAllCookies"] == "yes"){
-        alert("all");
-        chrome.cookies.getAll({"url" : tab.url}, function(cookies){
-            for (var i = 0; i < cookies.length; i++){
-                chrome.cookies.remove({"url" : tab.url, "name" : cookies[i].name});
+    if (localStorage["clearAllCookies"] == "yes"){
+        chrome.cookies.getAll({url : tab.url}, function(allCookies){
+            for (var cookie in allCookies) {
+                chrome.cookies.remove({url: tab.url, name: allCookies[cookie].name, storeId: allCookies[cookie].storeId});
             }
         });
     }
     else if (localStorage["clearSessionCookies"] == "yes"){
-        alert("session");
         chrome.cookies.getAll({url: tab.url, session: true}, function(allCookies){
 				for (var cookie in allCookies) {
 					chrome.cookies.remove({url: tab.url, name: allCookies[cookie].name, storeId: allCookies[cookie].storeId});
-                    chrome.cookies.remove({"url" : tab.url, "name" : cookies[i].name});
 				}
         });
     }
