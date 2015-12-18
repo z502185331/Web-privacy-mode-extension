@@ -11,13 +11,18 @@ The KEEPrivate mainly helps users to use Incognito Mode in Chrome efficiently an
  - Double click to open all the pages in incognito window
  - Blacklist(Any website containing the key words will automatically open in incognito mode)
 
+
+# Motivation
+
+According to our survey, we found that most users misunderstand the true protections of private browsing mode. The following aspects stop many users from benefitting from the Incognito Mode:
+ - Complex operation
+ - Users cannot customize the options of Incognito Mode
+ - Incognito Mode doesn't remove the cookies/histories set by the current page before moving to Incognito Mode
+ - Incognito Mode doesn't block trackers which means that the third parties can still collect information for advertisement.
+
 ## Code Example
 
 Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
-
-## Motivation
-
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
 
 ## Installation
 
