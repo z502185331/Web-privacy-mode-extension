@@ -1,17 +1,15 @@
-## Synopsis
-
+# Introduction
 The KEEPrivate mainly helps users to use Incognito Mode in Chrome efficiently and conveniently. The KEEPrivate provide the following features:
--Open the current page in Incognito Mode by simply click
--Remove session cookies / all cookies related with the current page
--Remove the browsing history of the current page
--Remove the Recent Closely history of the current page
--Block third-party trackers by blocking the third-party cookies and JavaScript
--Simplify the operation
---Close the previous page
---Close the previous window
---Open all the page in the same Incognito window
---Double click to open all the pages in incognito window
---Blacklist(Any website containing the key words will automatically open in incognito mode)
+ - Open the current page in Incognito Mode by simply click
+ - Remove session cookies / all cookies related with the current page
+ - Remove the browsing history of the current page
+ - Remove the Recent Closely history of the current page 
+ - Block third-party trackers by blocking the third-party cookies and JavaScript
+ - Close the previous page
+ - Close the previous window
+ - Open all the page in the same Incognito window
+ - Double click to open all the pages in incognito window
+ - Blacklist(Any website containing the key words will automatically open in incognito mode)
 
 ## Code Example
 
