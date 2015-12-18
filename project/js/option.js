@@ -64,13 +64,16 @@ function initTokenfield(){
 }
 $(document).ready(function(){
    
-   setUp("clearSessionCookies", ["clearAllCookies"]);
-   setUp("clearHistory", ["clearRangeHistory"]);
+   setUp("refuseIncognitoThirdParty", ["refuseALLThirdParty"]);
+    setUp("clearSessionCookies", ["clearAllCookies"]);
+   setUp("clearRangeHistory", []);
     setUp("clearRecentCloseHistory", []);
     setUp("closeOriginalPage", ["closeOriginalWindow"]);
     setUp("openInTheSameWindow", []);
     setUp("doubleClick", []);
     setUp("autoMatch", []);
+    setUp("refuseAllJS", []);
+    setUp("notifyMe", []);
     initTokenfield()
     
     

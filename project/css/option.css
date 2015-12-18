@@ -4,7 +4,7 @@
 .container{
     margin: 0 auto;
     background-color: #eee;
-
+    padding-bottom: 30px;
 }
 .settings{
     padding-left: 50px;

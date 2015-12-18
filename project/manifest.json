@@ -20,6 +20,8 @@
     "webRequest",
     "webRequestBlocking",
     "notifications",
+    "contentSettings",
+    "privacy",
     "<all_urls>" 
 ],
 "options_page": "html/option.html",

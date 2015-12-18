@@ -12,36 +12,51 @@
 <body>
     <div class = "title">
         <h1>KEEPrivate OPTION</h1>
+        <a href="overview.html">Know more about KEEPrivate</a>
         <hr>
     </div>
     <div class = "container">
             <h2>Cookies:</h2>
         <div class = "settings">
-            <input id = "clearSessionCookies" type = "checkbox"><label for="clearSessionCookies">Clear Session cookies of the original page</label><br>
+            <input id = "clearSessionCookies" type = "checkbox">
+            <label for="clearSessionCookies">Clear session cookies.</label><br>
             <input id = "clearAllCookies" type = "checkbox">
-            <label for="clearAllCookies"><small>Clear All cookies of the original page</small></label><br>
-            
+            <label for="clearAllCookies"><small>Clear All cookies.</small></label><br>
+           
         </div>
             <h2>History:</h2>
         <div class = "settings">
-            <input id = "clearHistory" type = "checkbox"><label for="clearHistory">Clear Brosing history of the original page</label><br>
+<!--            <input id = "clearHistory" type = "checkbox"><label for="clearHistory">Clear brosing history of current page</label><br>-->
              <input id = "clearRangeHistory" type = "checkbox">
-            <label for="clearRangeHistory"><small>Clear All history from open this page</small></label><br>
+            <label for="clearRangeHistory">Clear all history of current page.</label><br>
             <input id = "clearRecentCloseHistory" type = "checkbox">
-            <label for="clearRecentCloseHistory">Clear All recent close history from open this page(warning: This will close your previous window!)</label><br>
+            <label for="clearRecentCloseHistory">Clear all recently close history from open this page.</label><br>
             
+        </div>
+        <h2>Trackers:</h2>
+        <div class = "settings">
+             
+            <input id = "refuseIncognitoThirdParty" type = "checkbox">
+            <label for="refuseIncognitoThirdParty">Block the third-party cookies only in incognito mode.</label><br>
+            <input id = "refuseALLThirdParty" type = "checkbox">
+            <label for="refuseALLThirdParty"><small>Block all the third-party cookies.</small></label><br>
+            <input id = "refuseAllJS" type = "checkbox">
+            <label for="refuseAllJS">Block trackers(via javascript) in websites. <font style="color:red;">(warning: This may compromise the normal work of website)</font></label><br>
         </div>
         <h2>Incognito mode:</h2>
         <div class = "settings">
-            <input id = "closeOriginalPage" type = "checkbox"><label for="closeOriginalPage"> Close the original page</label><br>
+            <input id = "notifyMe" type = "checkbox">
+            <label for="notifyMe"> Notify me.</label><br>
+            <input id = "closeOriginalPage" type = "checkbox">
+            <label for="closeOriginalPage"> Close the original page.</label><br>
              <input id = "closeOriginalWindow" type = "checkbox">
-            <label for="closeOriginalWindow"><small>close the window of original page</small></label><br>
+            <label for="closeOriginalWindow"><small>close the window of original page.</small></label><br>
             <input id = "openInTheSameWindow" type = "checkbox">
-            <label for="openInTheSameWindow">Click here to open all the page in the same window </label><br>
+            <label for="openInTheSameWindow">Open all the page in the same incognito window.</label><br>
              <input id = "doubleClick" type = "checkbox">
-            <label for="doubleClick">DoubleClick to open all the page in the  incognito mode</label><br><br>
+            <label for="doubleClick">DoubleClick to open all the page in the  incognito mode.</label><br><br>
             <input id = "autoMatch" type = "checkbox">
-            <label for="autoMatch">Automatically switch tabs with these keywords in their URLs to Incognito(click "enter" to save)</label>
+            <label for="autoMatch">Automatically switch tabs with these keywords in their URLs to Incognito(click "enter" to save).</label>
             <div id = "auto" class="collapse">
                 <input type="text" class="form-control" id="tokenfield"/>
             </div>
