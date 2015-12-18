@@ -1,3 +1,7 @@
+
+//Initiate the option. Give constraint between options and suboptions
+//If the option are not selected according to the localStorage, disable all the suboption and add through line
+//Add change listener, if users select the option, remove the disabled attributes in suboptions
 function setUp(option, subOptions){
 	isCheck(option);
     for (var opt in subOptions){
@@ -25,7 +29,10 @@ function setUp(option, subOptions){
     });
 }
 
-function isCheck(option){ ////read and write
+//Initiate the option according to the value in localStorage
+//Add change listener :
+//If users select the option, save "yes", else save "no"
+function isCheck(option){ 
     if (localStorage[option] == "yes"){
         $("#"+option).attr("checked","checked");
     }
@@ -34,6 +41,7 @@ function isCheck(option){ ////read and write
     });
 }
 
+//Initiate the tokenfield
 function initTokenfield(){
     $("#tokenfield").tokenfield();
     if (localStorage["blacklist"] == null){
